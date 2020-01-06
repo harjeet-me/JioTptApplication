@@ -1,0 +1,153 @@
+{
+    "name": "Trip",
+    "fields": [
+        {
+            "fieldName": "tripNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "shipmentNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bol",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pickup",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "drop",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "pickupLocation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dropLocation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "currentLocation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "StatusEnum",
+            "fieldValues": "PICKEDUP,ONROAD,DELIVERED,INVOICED"
+        },
+        {
+            "fieldName": "detention",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "chasisInTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "pod",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "hazmat",
+            "fieldType": "HAZMAT",
+            "fieldValues": "YES,NO"
+        },
+        {
+            "fieldName": "recievedBy",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "coveredBy",
+            "fieldType": "COVEREDBY",
+            "fieldValues": "CompanyDriver,OwnerOperator"
+        },
+        {
+            "fieldName": "loadType",
+            "fieldType": "LoadType",
+            "fieldValues": "REEFER,FLATBED,LTL"
+        },
+        {
+            "fieldName": "containerSize",
+            "fieldType": "SizeEnum",
+            "fieldValues": "C53,C43,C20"
+        },
+        {
+            "fieldName": "numbersOfContainer",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "comments",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "trip",
+            "relationshipName": "pickupLocation",
+            "otherEntityField": "address",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "trip",
+            "relationshipName": "dropLocation",
+            "otherEntityField": "address",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "invoice",
+            "otherEntityRelationshipName": "trip",
+            "relationshipName": "invoice"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "loadOrder",
+            "relationshipName": "customer",
+            "otherEntityField": "email"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "driver",
+            "otherEntityRelationshipName": "trip",
+            "relationshipName": "driver",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "equipment",
+            "otherEntityRelationshipName": "trip",
+            "relationshipName": "equipment",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ownerOperator",
+            "otherEntityRelationshipName": "loadOrder",
+            "relationshipName": "ownerOperator",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200106221129",
+    "entityTableName": "trip",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

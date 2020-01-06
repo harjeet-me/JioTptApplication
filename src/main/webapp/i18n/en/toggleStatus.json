@@ -1,0 +1,9 @@
+{
+  "jioTptApplicationApp": {
+    "ToggleStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "INACTIVE": "INACTIVE"
+    }
+  }
+}

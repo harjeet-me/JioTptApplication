@@ -1,0 +1,134 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jioTptApplicationApp.customer.home.title">Customers</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-customer" [routerLink]="['/customer/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="jioTptApplicationApp.customer.home.createLabel">
+            Create a new Customer
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jioTptApplicationApp.customer.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="search('')" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="customers?.length === 0">
+        <span jhiTranslate="jioTptApplicationApp.customer.home.notFound">No customers found</span>
+    </div>
+    <div class="table-responsive" *ngIf="customers?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.company">Company</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.firstName">First Name</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.lastName">Last Name</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.contactDesignation">Contact Designation</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.email">Email</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.phoneNumber">Phone Number</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.preffredContactType">Preffred Contact Type</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.website">Website</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.secondaryContactPerson">Secondary Contact Person</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.secContactNumber">Sec Contact Number</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.secContactEmail">Sec Contact Email</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.secContactPreContactTime">Sec Contact Pre Contact Time</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.fax">Fax</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.address">Address</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.streetAddress">Street Address</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.city">City</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.stateProvince">State Province</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.country">Country</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.postalCode">Postal Code</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.dot">Dot</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.mc">Mc</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.companyLogo">Company Logo</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.customerSince">Customer Since</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.remarks">Remarks</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.contract">Contract</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.status">Status</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.preffredCurrency">Preffred Currency</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.payterms">Payterms</span></th>
+            <th scope="col" ><span jhiTranslate="jioTptApplicationApp.customer.timeZone">Time Zone</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let customer of customers ;trackBy: trackId">
+                <td><a [routerLink]="['/customer', customer.id, 'view' ]">{{customer.id}}</a></td>
+                <td>{{customer.company}}</td>
+                <td>{{customer.firstName}}</td>
+                <td>{{customer.lastName}}</td>
+                <td jhiTranslate="{{'jioTptApplicationApp.Designation.' + customer.contactDesignation}}">{{customer.contactDesignation}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.phoneNumber}}</td>
+                <td jhiTranslate="{{'jioTptApplicationApp.PreffredContactType.' + customer.preffredContactType}}">{{customer.preffredContactType}}</td>
+                <td>{{customer.website}}</td>
+                <td>{{customer.secondaryContactPerson}}</td>
+                <td>{{customer.secContactNumber}}</td>
+                <td>{{customer.secContactEmail}}</td>
+                <td>{{customer.secContactPreContactTime}}</td>
+                <td>{{customer.fax}}</td>
+                <td>{{customer.address}}</td>
+                <td>{{customer.streetAddress}}</td>
+                <td>{{customer.city}}</td>
+                <td>{{customer.stateProvince}}</td>
+                <td jhiTranslate="{{'jioTptApplicationApp.CountryEnum.' + customer.country}}">{{customer.country}}</td>
+                <td>{{customer.postalCode}}</td>
+                <td>{{customer.dot}}</td>
+                <td>{{customer.mc}}</td>
+                <td>
+                    <a *ngIf="customer.companyLogo" (click)="openFile(customer.companyLogoContentType, customer.companyLogo)">
+                        <img [src]="'data:' + customer.companyLogoContentType + ';base64,' + customer.companyLogo" style="max-height: 30px;" alt="customer image"/>
+                    </a>
+                    <span *ngIf="customer.companyLogo">{{customer.companyLogoContentType}}, {{byteSize(customer.companyLogo)}}</span>
+                </td>
+                <td>{{customer.customerSince | date:'mediumDate'}}</td>
+                <td>{{customer.remarks}}</td>
+                <td>
+                    <a *ngIf="customer.contract" (click)="openFile(customer.contractContentType, customer.contract)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="customer.contract">{{customer.contractContentType}}, {{byteSize(customer.contract)}}</span>
+                </td>
+                <td jhiTranslate="{{'jioTptApplicationApp.ToggleStatus.' + customer.status}}">{{customer.status}}</td>
+                <td jhiTranslate="{{'jioTptApplicationApp.CURRENCY.' + customer.preffredCurrency}}">{{customer.preffredCurrency}}</td>
+                <td>{{customer.payterms}}</td>
+                <td>{{customer.timeZone | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/customer', customer.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/customer', customer.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(customer)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="insurance">
+            <h2><span jhiTranslate="jioTptApplicationApp.insurance.detail.title">Insurance</span> {{insurance.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jioTptApplicationApp.insurance.providerName">Provider Name</span></dt>
+                <dd>
+                    <span>{{insurance.providerName}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.insurance.issueDate">Issue Date</span></dt>
+                <dd>
+                    <span>{{insurance.issueDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.insurance.expiryDate">Expiry Date</span></dt>
+                <dd>
+                    <span>{{insurance.expiryDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.insurance.policyDocument">Policy Document</span></dt>
+                <dd>
+                    <div *ngIf="insurance.policyDocument">
+                        <a (click)="openFile(insurance.policyDocumentContentType!, insurance.policyDocument)" jhiTranslate="entity.action.open">open</a>
+                        {{insurance.policyDocumentContentType}}, {{byteSize(insurance.policyDocument)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.insurance.coverageStatement">Coverage Statement</span></dt>
+                <dd>
+                    <span>{{insurance.coverageStatement}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/insurance', insurance.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "jioTptApplicationApp": {
+    "TxStatus": {
+      "null": "",
+      "INITIATED": "INITIATED",
+      "UNDERPROCESS": "UNDERPROCESS",
+      "COMPLETED": "COMPLETED"
+    }
+  }
+}

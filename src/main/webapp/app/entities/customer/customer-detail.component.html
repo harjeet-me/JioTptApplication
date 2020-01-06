@@ -1,0 +1,147 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customer">
+            <h2><span jhiTranslate="jioTptApplicationApp.customer.detail.title">Customer</span> {{customer.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.company">Company</span></dt>
+                <dd>
+                    <span>{{customer.company}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{customer.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{customer.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.contactDesignation">Contact Designation</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.Designation.' + customer.contactDesignation}}">{{customer.contactDesignation}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.email">Email</span></dt>
+                <dd>
+                    <span>{{customer.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{customer.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.preffredContactType">Preffred Contact Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.PreffredContactType.' + customer.preffredContactType}}">{{customer.preffredContactType}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.website">Website</span></dt>
+                <dd>
+                    <span>{{customer.website}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.secondaryContactPerson">Secondary Contact Person</span></dt>
+                <dd>
+                    <span>{{customer.secondaryContactPerson}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.secContactNumber">Sec Contact Number</span></dt>
+                <dd>
+                    <span>{{customer.secContactNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.secContactEmail">Sec Contact Email</span></dt>
+                <dd>
+                    <span>{{customer.secContactEmail}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.secContactPreContactTime">Sec Contact Pre Contact Time</span></dt>
+                <dd>
+                    <span>{{customer.secContactPreContactTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.fax">Fax</span></dt>
+                <dd>
+                    <span>{{customer.fax}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.address">Address</span></dt>
+                <dd>
+                    <span>{{customer.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.streetAddress">Street Address</span></dt>
+                <dd>
+                    <span>{{customer.streetAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.city">City</span></dt>
+                <dd>
+                    <span>{{customer.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.stateProvince">State Province</span></dt>
+                <dd>
+                    <span>{{customer.stateProvince}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.country">Country</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.CountryEnum.' + customer.country}}">{{customer.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.postalCode">Postal Code</span></dt>
+                <dd>
+                    <span>{{customer.postalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.dot">Dot</span></dt>
+                <dd>
+                    <span>{{customer.dot}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.mc">Mc</span></dt>
+                <dd>
+                    <span>{{customer.mc}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.companyLogo">Company Logo</span></dt>
+                <dd>
+                    <div *ngIf="customer.companyLogo">
+                        <a (click)="openFile(customer.companyLogoContentType!, customer.companyLogo)">
+                            <img [src]="'data:' + customer.companyLogoContentType + ';base64,' + customer.companyLogo" style="max-width: 100%;" alt="customer image"/>
+                        </a>
+                        {{customer.companyLogoContentType}}, {{byteSize(customer.companyLogo)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.customerSince">Customer Since</span></dt>
+                <dd>
+                    <span>{{customer.customerSince}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{customer.remarks}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.contract">Contract</span></dt>
+                <dd>
+                    <div *ngIf="customer.contract">
+                        <a (click)="openFile(customer.contractContentType!, customer.contract)" jhiTranslate="entity.action.open">open</a>
+                        {{customer.contractContentType}}, {{byteSize(customer.contract)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.ToggleStatus.' + customer.status}}">{{customer.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.preffredCurrency">Preffred Currency</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.CURRENCY.' + customer.preffredCurrency}}">{{customer.preffredCurrency}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.payterms">Payterms</span></dt>
+                <dd>
+                    <span>{{customer.payterms}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.customer.timeZone">Time Zone</span></dt>
+                <dd>
+                    <span>{{customer.timeZone}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer', customer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

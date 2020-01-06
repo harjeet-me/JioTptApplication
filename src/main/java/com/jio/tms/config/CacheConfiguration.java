@@ -42,6 +42,29 @@ public class CacheConfiguration {
             createCache(cm, com.jio.tms.domain.User.class.getName());
             createCache(cm, com.jio.tms.domain.Authority.class.getName());
             createCache(cm, com.jio.tms.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.jio.tms.domain.CompanyProfile.class.getName());
+            createCache(cm, com.jio.tms.domain.Customer.class.getName());
+            createCache(cm, com.jio.tms.domain.Customer.class.getName() + ".loadOrders");
+            createCache(cm, com.jio.tms.domain.Customer.class.getName() + ".invoices");
+            createCache(cm, com.jio.tms.domain.Customer.class.getName() + ".morecontacts");
+            createCache(cm, com.jio.tms.domain.Customer.class.getName() + ".transactionsRecords");
+            createCache(cm, com.jio.tms.domain.Trip.class.getName());
+            createCache(cm, com.jio.tms.domain.Trip.class.getName() + ".invoices");
+            createCache(cm, com.jio.tms.domain.Invoice.class.getName());
+            createCache(cm, com.jio.tms.domain.Invoice.class.getName() + ".invoiceItems");
+            createCache(cm, com.jio.tms.domain.InvoiceItem.class.getName());
+            createCache(cm, com.jio.tms.domain.Accounts.class.getName());
+            createCache(cm, com.jio.tms.domain.Accounts.class.getName() + ".transactionsRecords");
+            createCache(cm, com.jio.tms.domain.TransactionsRecord.class.getName());
+            createCache(cm, com.jio.tms.domain.Equipment.class.getName());
+            createCache(cm, com.jio.tms.domain.Equipment.class.getName() + ".trips");
+            createCache(cm, com.jio.tms.domain.Insurance.class.getName());
+            createCache(cm, com.jio.tms.domain.Contact.class.getName());
+            createCache(cm, com.jio.tms.domain.Driver.class.getName());
+            createCache(cm, com.jio.tms.domain.Driver.class.getName() + ".trips");
+            createCache(cm, com.jio.tms.domain.OwnerOperator.class.getName());
+            createCache(cm, com.jio.tms.domain.OwnerOperator.class.getName() + ".loadOrders");
+            createCache(cm, com.jio.tms.domain.Location.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

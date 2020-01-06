@@ -1,0 +1,94 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="invoice">
+            <h2><span jhiTranslate="jioTptApplicationApp.invoice.detail.title">Invoice</span> {{invoice.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.orderNo">Order No</span></dt>
+                <dd>
+                    <span>{{invoice.orderNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.taxRate">Tax Rate</span></dt>
+                <dd>
+                    <span>{{invoice.taxRate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.taxType">Tax Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.TaxType.' + invoice.taxType}}">{{invoice.taxType}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.currency">Currency</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.CURRENCY.' + invoice.currency}}">{{invoice.currency}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.invoiceTaxTotal">Invoice Tax Total</span></dt>
+                <dd>
+                    <span>{{invoice.invoiceTaxTotal}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.invoiceSubTotal">Invoice Sub Total</span></dt>
+                <dd>
+                    <span>{{invoice.invoiceSubTotal}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.invoiceTotal">Invoice Total</span></dt>
+                <dd>
+                    <span>{{invoice.invoiceTotal}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.invoiceDate">Invoice Date</span></dt>
+                <dd>
+                    <span>{{invoice.invoiceDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.invoicePaidDate">Invoice Paid Date</span></dt>
+                <dd>
+                    <span>{{invoice.invoicePaidDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.payRefNo">Pay Ref No</span></dt>
+                <dd>
+                    <span>{{invoice.payRefNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.invoiceDueDate">Invoice Due Date</span></dt>
+                <dd>
+                    <span>{{invoice.invoiceDueDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.InvoiceStatus.' + invoice.status}}">{{invoice.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.invoicePdf">Invoice Pdf</span></dt>
+                <dd>
+                    <div *ngIf="invoice.invoicePdf">
+                        <a (click)="openFile(invoice.invoicePdfContentType!, invoice.invoicePdf)" jhiTranslate="entity.action.open">open</a>
+                        {{invoice.invoicePdfContentType}}, {{byteSize(invoice.invoicePdf)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.remarks">Remarks</span></dt>
+                <dd>
+                    <span>{{invoice.remarks}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="invoice.customer">
+                        <a [routerLink]="['/customer', invoice.customer?.id, 'view']">{{invoice.customer?.company}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.invoice.trip">Trip</span></dt>
+                <dd>
+                    <div *ngIf="invoice.trip">
+                        <a [routerLink]="['/trip', invoice.trip?.id, 'view']">{{invoice.trip?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/invoice', invoice.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-owner-operator-heading" jhiTranslate="jioTptApplicationApp.ownerOperator.home.createOrEditLabel">Create or edit a Owner Operator</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.company" for="field_company">Company</label>
+                    <input type="text" class="form-control" name="company" id="field_company"
+                           formControlName="company"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                           formControlName="firstName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                           formControlName="lastName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.contactDesignation" for="field_contactDesignation">Contact Designation</label>
+                    <select class="form-control" name="contactDesignation" formControlName="contactDesignation" id="field_contactDesignation">
+                        <option value="MANAGER">{{'jioTptApplicationApp.Designation.MANAGER' | translate}}</option>
+                        <option value="ACCOUNTANT">{{'jioTptApplicationApp.Designation.ACCOUNTANT' | translate}}</option>
+                        <option value="OWNER">{{'jioTptApplicationApp.Designation.OWNER' | translate}}</option>
+                        <option value="DISPATCHER">{{'jioTptApplicationApp.Designation.DISPATCHER' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="number" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                           formControlName="phoneNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                           formControlName="address"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.streetAddress" for="field_streetAddress">Street Address</label>
+                    <input type="text" class="form-control" name="streetAddress" id="field_streetAddress"
+                           formControlName="streetAddress"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.city" for="field_city">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                           formControlName="city"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.stateProvince" for="field_stateProvince">State Province</label>
+                    <input type="text" class="form-control" name="stateProvince" id="field_stateProvince"
+                           formControlName="stateProvince"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.country" for="field_country">Country</label>
+                    <select class="form-control" name="country" formControlName="country" id="field_country">
+                        <option value="USA">{{'jioTptApplicationApp.CountryEnum.USA' | translate}}</option>
+                        <option value="CANADA">{{'jioTptApplicationApp.CountryEnum.CANADA' | translate}}</option>
+                        <option value="MEXICO">{{'jioTptApplicationApp.CountryEnum.MEXICO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.postalCode" for="field_postalCode">Postal Code</label>
+                    <input type="text" class="form-control" name="postalCode" id="field_postalCode"
+                           formControlName="postalCode"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.dot" for="field_dot">Dot</label>
+                    <input type="text" class="form-control" name="dot" id="field_dot"
+                           formControlName="dot"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.mc" for="field_mc">Mc</label>
+                    <input type="number" class="form-control" name="mc" id="field_mc"
+                           formControlName="mc"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.profileStatus" for="field_profileStatus">Profile Status</label>
+                    <select class="form-control" name="profileStatus" formControlName="profileStatus" id="field_profileStatus">
+                        <option value="ACTIVE">{{'jioTptApplicationApp.ToggleStatus.ACTIVE' | translate}}</option>
+                        <option value="INACTIVE">{{'jioTptApplicationApp.ToggleStatus.INACTIVE' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.preffredCurrency" for="field_preffredCurrency">Preffred Currency</label>
+                    <select class="form-control" name="preffredCurrency" formControlName="preffredCurrency" id="field_preffredCurrency">
+                        <option value="USD">{{'jioTptApplicationApp.CURRENCY.USD' | translate}}</option>
+                        <option value="CAD">{{'jioTptApplicationApp.CURRENCY.CAD' | translate}}</option>
+                        <option value="INR">{{'jioTptApplicationApp.CURRENCY.INR' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.contractDoc" for="field_contractDoc">Contract Doc</label>
+                    <div>
+                        <div *ngIf="editForm.get('contractDoc')!.value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('contractDocContentType')!.value, editForm.get('contractDoc')!.value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('contractDocContentType')!.value}}, {{byteSize(editForm.get('contractDoc')!.value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({contractDoc: null});editForm.patchValue({contractDocContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_contractDoc" (change)="setFileData($event, 'contractDoc', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="contractDoc" id="field_contractDoc"
+                           formControlName="contractDoc"/>
+                    <input type="hidden" class="form-control" name="contractDocContentType" id="field_contractDocContentType"
+                           formControlName="contractDocContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.ownerOperator.operInsurance" for="field_operInsurance">Oper Insurance</label>
+                    <select class="form-control" id="field_operInsurance" name="operInsurance" formControlName="operInsurance">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="insuranceOption.id === editForm.get('operInsurance')!.value?.id ? editForm.get('operInsurance')!.value : insuranceOption" *ngFor="let insuranceOption of operinsurances; trackBy: trackById">{{insuranceOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
