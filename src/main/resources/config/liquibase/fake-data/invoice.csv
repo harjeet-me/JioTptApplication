@@ -1,0 +1,11 @@
+id;order_no;tax_rate;tax_type;currency;invoice_tax_total;invoice_sub_total;invoice_total;invoice_date;invoice_paid_date;pay_ref_no;invoice_due_date;status;invoice_pdf;invoice_pdf_content_type;remarks
+1;Texas Concrete;29354;GST;CAD;30348;64379;78406;2020-01-06;2020-01-06;reboot Rhode Island bypassing;2020-01-06;DRAFT;../fake-data/blob/hipster.png;image/png;online streamline reciprocal
+2;Virginia Borders;17323;FEDRAL;INR;79274;76782;97683;2020-01-06;2020-01-06;experiences;2020-01-06;VOIDED;../fake-data/blob/hipster.png;image/png;Money Market Account
+3;program transmitting EXE;76843;FEDRAL;USD;85471;6085;99574;2020-01-06;2020-01-06;Awesome;2020-01-06;PARTIALLY_PAID;../fake-data/blob/hipster.png;image/png;hub
+4;Buckinghamshire Agent SDD;78043;GST;INR;82749;26260;53788;2020-01-06;2020-01-06;auxiliary;2020-01-06;PAID;../fake-data/blob/hipster.png;image/png;Plains
+5;Small Rubber Pants Brand Savings Account;53480;FEDRAL;CAD;4123;5252;58154;2020-01-06;2020-01-06;e-markets Arizona Barbados Dollar;2020-01-06;VOIDED;../fake-data/blob/hipster.png;image/png;navigate Home Loan Account Guinea-Bissau
+6;Home Loan Account;19746;FEDRAL;INR;85552;55967;5450;2020-01-06;2020-01-06;eyeballs synergies North Carolina;2020-01-06;OVERDRAFT;../fake-data/blob/hipster.png;image/png;Response Concrete
+7;Investment Account;5508;GST;INR;12897;52363;14351;2020-01-06;2020-01-06;Data Nauru customer loyalty;2020-01-06;OVERDRAFT;../fake-data/blob/hipster.png;image/png;Pizza
+8;Mall deposit Credit Card Account;82034;GST;USD;23300;55738;86392;2020-01-06;2020-01-06;Barbados Dollar Agent Lebanese Pound;2020-01-06;PAID;../fake-data/blob/hipster.png;image/png;Savings Account Manager Brazilian Real
+9;Court Centers Avon;50663;FEDRAL;CAD;79125;36376;65479;2020-01-06;2020-01-06;firewall Ville plum;2020-01-06;GENERATED;../fake-data/blob/hipster.png;image/png;Arkansas Sausages
+10;Specialist Small embrace;41596;FEDRAL;CAD;490;65673;63297;2020-01-06;2020-01-06;Direct;2020-01-06;SENT;../fake-data/blob/hipster.png;image/png;orchestrate program Chief

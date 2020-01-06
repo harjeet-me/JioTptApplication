@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="companyProfile">
+            <h2><span jhiTranslate="jioTptApplicationApp.companyProfile.detail.title">Company Profile</span> {{companyProfile.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.active">Active</span></dt>
+                <dd>
+                    <span>{{companyProfile.active}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.company">Company</span></dt>
+                <dd>
+                    <span>{{companyProfile.company}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.address">Address</span></dt>
+                <dd>
+                    <span>{{companyProfile.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.streetAddress">Street Address</span></dt>
+                <dd>
+                    <span>{{companyProfile.streetAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.city">City</span></dt>
+                <dd>
+                    <span>{{companyProfile.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.stateProvince">State Province</span></dt>
+                <dd>
+                    <span>{{companyProfile.stateProvince}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.country">Country</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.CountryEnum.' + companyProfile.country}}">{{companyProfile.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.postalCode">Postal Code</span></dt>
+                <dd>
+                    <span>{{companyProfile.postalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.email">Email</span></dt>
+                <dd>
+                    <span>{{companyProfile.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.website">Website</span></dt>
+                <dd>
+                    <span>{{companyProfile.website}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{companyProfile.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.dot">Dot</span></dt>
+                <dd>
+                    <span>{{companyProfile.dot}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.mc">Mc</span></dt>
+                <dd>
+                    <span>{{companyProfile.mc}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.companyLogo">Company Logo</span></dt>
+                <dd>
+                    <div *ngIf="companyProfile.companyLogo">
+                        <a (click)="openFile(companyProfile.companyLogoContentType!, companyProfile.companyLogo)">
+                            <img [src]="'data:' + companyProfile.companyLogoContentType + ';base64,' + companyProfile.companyLogo" style="max-width: 100%;" alt="companyProfile image"/>
+                        </a>
+                        {{companyProfile.companyLogoContentType}}, {{byteSize(companyProfile.companyLogo)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.profileStatus">Profile Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.ToggleStatus.' + companyProfile.profileStatus}}">{{companyProfile.profileStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.companyProfile.preffredCurrency">Preffred Currency</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.CURRENCY.' + companyProfile.preffredCurrency}}">{{companyProfile.preffredCurrency}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/company-profile', companyProfile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

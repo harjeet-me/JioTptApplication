@@ -1,0 +1,9 @@
+{
+  "jioTptApplicationApp": {
+    "TaxType": {
+      "null": "",
+      "GST": "GST",
+      "FEDRAL": "FEDRAL"
+    }
+  }
+}

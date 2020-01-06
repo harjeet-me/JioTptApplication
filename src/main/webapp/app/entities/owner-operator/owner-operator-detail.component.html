@@ -1,0 +1,100 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ownerOperator">
+            <h2><span jhiTranslate="jioTptApplicationApp.ownerOperator.detail.title">Owner Operator</span> {{ownerOperator.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.company">Company</span></dt>
+                <dd>
+                    <span>{{ownerOperator.company}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{ownerOperator.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{ownerOperator.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.contactDesignation">Contact Designation</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.Designation.' + ownerOperator.contactDesignation}}">{{ownerOperator.contactDesignation}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.email">Email</span></dt>
+                <dd>
+                    <span>{{ownerOperator.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{ownerOperator.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.address">Address</span></dt>
+                <dd>
+                    <span>{{ownerOperator.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.streetAddress">Street Address</span></dt>
+                <dd>
+                    <span>{{ownerOperator.streetAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.city">City</span></dt>
+                <dd>
+                    <span>{{ownerOperator.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.stateProvince">State Province</span></dt>
+                <dd>
+                    <span>{{ownerOperator.stateProvince}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.country">Country</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.CountryEnum.' + ownerOperator.country}}">{{ownerOperator.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.postalCode">Postal Code</span></dt>
+                <dd>
+                    <span>{{ownerOperator.postalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.dot">Dot</span></dt>
+                <dd>
+                    <span>{{ownerOperator.dot}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.mc">Mc</span></dt>
+                <dd>
+                    <span>{{ownerOperator.mc}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.profileStatus">Profile Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.ToggleStatus.' + ownerOperator.profileStatus}}">{{ownerOperator.profileStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.preffredCurrency">Preffred Currency</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jioTptApplicationApp.CURRENCY.' + ownerOperator.preffredCurrency}}">{{ownerOperator.preffredCurrency}}</span>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.contractDoc">Contract Doc</span></dt>
+                <dd>
+                    <div *ngIf="ownerOperator.contractDoc">
+                        <a (click)="openFile(ownerOperator.contractDocContentType!, ownerOperator.contractDoc)" jhiTranslate="entity.action.open">open</a>
+                        {{ownerOperator.contractDocContentType}}, {{byteSize(ownerOperator.contractDoc)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jioTptApplicationApp.ownerOperator.operInsurance">Oper Insurance</span></dt>
+                <dd>
+                    <div *ngIf="ownerOperator.operInsurance">
+                        <a [routerLink]="['/insurance', ownerOperator.operInsurance?.id, 'view']">{{ownerOperator.operInsurance?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/owner-operator', ownerOperator.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

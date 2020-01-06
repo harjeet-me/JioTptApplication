@@ -1,0 +1,97 @@
+{
+    "name": "Invoice",
+    "fields": [
+        {
+            "fieldName": "orderNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "taxRate",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "taxType",
+            "fieldType": "TaxType",
+            "fieldValues": "GST,FEDRAL"
+        },
+        {
+            "fieldName": "currency",
+            "fieldType": "CURRENCY",
+            "fieldValues": "USD,CAD,INR"
+        },
+        {
+            "fieldName": "invoiceTaxTotal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "invoiceSubTotal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "invoiceTotal",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "invoiceDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "invoicePaidDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "payRefNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "invoiceDueDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "InvoiceStatus",
+            "fieldValues": "DRAFT,GENERATED,SENT,PAID,OVERDRAFT,VOIDED,PARTIALLY_PAID"
+        },
+        {
+            "fieldName": "invoicePdf",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "remarks",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "invoiceItem",
+            "otherEntityRelationshipName": "invoice",
+            "relationshipName": "invoiceItem"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "invoice",
+            "relationshipName": "customer",
+            "otherEntityField": "company"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "trip",
+            "otherEntityRelationshipName": "invoice",
+            "relationshipName": "trip",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200106221130",
+    "entityTableName": "invoice",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

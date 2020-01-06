@@ -1,0 +1,39 @@
+{
+  "jioTptApplicationApp": {
+    "invoice": {
+      "home": {
+        "title": "Invoices",
+        "createLabel": "Create a new Invoice",
+        "createOrEditLabel": "Create or edit a Invoice",
+        "search": "Search for Invoice",
+        "notFound": "No Invoices found"
+      },
+      "created": "A new Invoice is created with identifier {{ param }}",
+      "updated": "A Invoice is updated with identifier {{ param }}",
+      "deleted": "A Invoice is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Invoice {{ id }}?"
+      },
+      "detail": {
+        "title": "Invoice"
+      },
+      "orderNo": "Order No",
+      "taxRate": "Tax Rate",
+      "taxType": "Tax Type",
+      "currency": "Currency",
+      "invoiceTaxTotal": "Invoice Tax Total",
+      "invoiceSubTotal": "Invoice Sub Total",
+      "invoiceTotal": "Invoice Total",
+      "invoiceDate": "Invoice Date",
+      "invoicePaidDate": "Invoice Paid Date",
+      "payRefNo": "Pay Ref No",
+      "invoiceDueDate": "Invoice Due Date",
+      "status": "Status",
+      "invoicePdf": "Invoice Pdf",
+      "remarks": "Remarks",
+      "invoiceItem": "Invoice Item",
+      "customer": "Customer",
+      "trip": "Trip"
+    }
+  }
+}

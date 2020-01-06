@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-contact-heading" jhiTranslate="jioTptApplicationApp.contact.home.createOrEditLabel">Create or edit a Contact</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.contact.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                           formControlName="firstName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.contact.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                           formControlName="lastName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.contact.contactDesignation" for="field_contactDesignation">Contact Designation</label>
+                    <select class="form-control" name="contactDesignation" formControlName="contactDesignation" id="field_contactDesignation">
+                        <option value="MANAGER">{{'jioTptApplicationApp.Designation.MANAGER' | translate}}</option>
+                        <option value="ACCOUNTANT">{{'jioTptApplicationApp.Designation.ACCOUNTANT' | translate}}</option>
+                        <option value="OWNER">{{'jioTptApplicationApp.Designation.OWNER' | translate}}</option>
+                        <option value="DISPATCHER">{{'jioTptApplicationApp.Designation.DISPATCHER' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.contact.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.contact.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="number" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                           formControlName="phoneNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.contact.remarks" for="field_remarks">Remarks</label>
+                    <input type="text" class="form-control" name="remarks" id="field_remarks"
+                           formControlName="remarks"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.contact.preferredTime" for="field_preferredTime">Preferred Time</label>
+                    <input type="text" class="form-control" name="preferredTime" id="field_preferredTime"
+                           formControlName="preferredTime"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jioTptApplicationApp.contact.customer" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" formControlName="customer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id === editForm.get('customer')!.value?.id ? editForm.get('customer')!.value : customerOption" *ngFor="let customerOption of customers; trackBy: trackById">{{customerOption.company}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

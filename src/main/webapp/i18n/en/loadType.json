@@ -1,0 +1,10 @@
+{
+  "jioTptApplicationApp": {
+    "LoadType": {
+      "null": "",
+      "REEFER": "REEFER",
+      "FLATBED": "FLATBED",
+      "LTL": "LTL"
+    }
+  }
+}

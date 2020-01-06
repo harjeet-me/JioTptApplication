@@ -1,0 +1,104 @@
+{
+    "name": "OwnerOperator",
+    "fields": [
+        {
+            "fieldName": "company",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactDesignation",
+            "fieldType": "Designation",
+            "fieldValues": "MANAGER,ACCOUNTANT,OWNER,DISPATCHER"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "streetAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stateProvince",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "CountryEnum",
+            "fieldValues": "USA,CANADA,MEXICO"
+        },
+        {
+            "fieldName": "postalCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dot",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mc",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "profileStatus",
+            "fieldType": "ToggleStatus",
+            "fieldValues": "ACTIVE,INACTIVE"
+        },
+        {
+            "fieldName": "preffredCurrency",
+            "fieldType": "CURRENCY",
+            "fieldValues": "USD,CAD,INR"
+        },
+        {
+            "fieldName": "contractDoc",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "insurance",
+            "otherEntityRelationshipName": "ownerOperator",
+            "relationshipName": "operInsurance",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "trip",
+            "otherEntityRelationshipName": "ownerOperator",
+            "relationshipName": "loadOrder"
+        }
+    ],
+    "changelogDate": "20200106221138",
+    "entityTableName": "owner_operator",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

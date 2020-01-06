@@ -1,0 +1,48 @@
+{
+    "name": "InvoiceItem",
+    "fields": [
+        {
+            "fieldName": "itemName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "qty",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "discount",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "total",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "invoice",
+            "otherEntityRelationshipName": "invoiceItem",
+            "relationshipName": "invoice",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200106221131",
+    "entityTableName": "invoice_item",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
